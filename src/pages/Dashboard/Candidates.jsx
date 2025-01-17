@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { TbLogout } from "react-icons/tb"
+import { IoPersonCircleOutline } from "react-icons/io5";
 import Cookies from "js-cookie";
 import {
   fetchCandidates,
@@ -92,35 +94,40 @@ const Candidates = () => {
   return (
     <div className="p-8">
       <ToastContainer />
-
-      {/* Header Section */}
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">
+         <div className="flex justify-between pb-5">
+         <h1 className="text-2xl font-bold text-gray-800 mb-5">
           Referral Management System
         </h1>
-        <div className="flex gap-4">
-          <div className="bg-blue-100 text-blue-700 px-4 py-2 rounded-md text-center">
+        <div>
+          <button className="px-6 p-1 flex justify-center items-center rounded-full borderd border-slate-500 border-2 text-center outline-gray-50" onClick={logout}>
+            < TbLogout/>&nbsp; Logout
+          </button>
+        </div>
+         </div>
+      {/* Header Section */}
+      <div className="flex  items-center">
+    
+        <div className="flex gap-4 w-full">
+          <div className="flex justify-center rounded-sm text-white items-center w-1/4 bg-[#5A4FCF] px-4 py-2  text-center">
+          <IoPersonCircleOutline  className="text-2xl"/>&nbsp;
+            <p className="text-lg text-white"> Total Candidates  &nbsp;</p>
             <h2 className="text-xl font-bold">{totalCandidates}</h2>
-            <p className="text-sm">Total Candidates</p>
+
           </div>
-          <div className="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md text-center">
+          <div className="bg-[#6CB4EE] w-1/4 text-white px-4 py-2 rounded-sm text-center">
             <h2 className="text-xl font-bold">{pendingCandidates}</h2>
             <p className="text-sm">Pending</p>
           </div>
-          <div className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md text-center">
+          <div className="bg-[#7FFFD4] w-1/4 text-gray-700 px-4 py-2 rounded-sm text-center">
             <h2 className="text-xl font-bold">{reviewedCandidates}</h2>
             <p className="text-sm">Reviewed</p>
           </div>
-          <div className="bg-green-100 text-green-700 px-4 py-2 rounded-md text-center">
+          <div className="bg-green-100 w-1/4 text-green-700 px-4 py-2 rounded-sm text-center">
             <h2 className="text-xl font-bold">{hiredCandidates}</h2>
             <p className="text-sm">Hired</p>
           </div>
         </div>
-        <div>
-          <button className="px-4 py-2 bg-blue-500 rounded-md text-center" onClick={logout}>
-            Logout
-          </button>
-        </div>
+   
       </div>
 
       {/* Filters, Sorting, and Search */}
@@ -129,14 +136,14 @@ const Candidates = () => {
         <input
           type="text"
           placeholder="Search by Name"
-          className="w-full lg:w-1/3 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          className="w-full lg:w-1/3 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         {/* Job Title Filter */}
         <select
-          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           value={selectedJobTitle}
           onChange={(e) => setSelectedJobTitle(e.target.value)}
         >
@@ -152,7 +159,7 @@ const Candidates = () => {
 
         {/* Status Filter */}
         <select
-          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
@@ -164,7 +171,7 @@ const Candidates = () => {
 
         {/* Sorting */}
         <select
-          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          className="w-full lg:w-1/4 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
         >
