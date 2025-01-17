@@ -126,6 +126,7 @@ const Candidates = () => {
             <h2 className="text-xl font-bold">{hiredCandidates}</h2>
             <p className="text-sm">Hired</p>
           </div>
+          
         </div>
    
       </div>
@@ -178,6 +179,12 @@ const Candidates = () => {
           <option value="asc">Sort by Name (A-Z)</option>
           <option value="desc">Sort by Name (Z-A)</option>
         </select>
+        <button
+          className="bg-blue-600 text-white px-6 py-2 w-44 rounded-full font-medium hover:bg-blue-700 transition"
+          onClick={() => setModalIsOpen(true)}
+        >
+          + Create New
+        </button>
       </div>
 
       {/* Candidate Table */}
