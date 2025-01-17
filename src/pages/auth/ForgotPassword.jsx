@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { url } from "../../../api";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        `${url}/auth/forgot-password`,
         { email: values.email }
       );
 

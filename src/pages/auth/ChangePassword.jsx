@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { url } from "../../../api";
 
 const ChangePassword = () => {
   // Validation Schema with Yup
@@ -35,7 +36,7 @@ const ChangePassword = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/reset-password",
+        `${url}/auth/reset-password`,
         {
           email: values.email,
           otp: values.otp,

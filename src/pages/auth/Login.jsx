@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { url } from "../../../api";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +36,7 @@ const Login = () => {
 const navigate=useNavigate()
   const handleSubmit = async (values) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", values);
+      const response = await axios.post(`${url}/auth/login`, values);
 
       if (response.data.success) {
         // Store tokens in cookies

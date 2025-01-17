@@ -2,8 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
+import { url } from "../../../api";
 
-const base_url = "http://localhost:5000/api/candidates";
+const base_url = `${url}/candidates`;
 
 // Thunks
 export const fetchCandidates = createAsyncThunk(
