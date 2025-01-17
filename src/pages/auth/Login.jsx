@@ -29,9 +29,9 @@ const Login = () => {
   });
 
   const initialValues = {
-    username: "",
-    email: "",
-    password: "",
+    username: "dharan",
+    email: "gangadharana01@gmail.com",
+    password: "password@123",
   };
 const navigate=useNavigate()
   const handleSubmit = async (values) => {
